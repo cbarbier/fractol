@@ -6,7 +6,7 @@
 /*   By: cbarbier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/19 19:47:59 by cbarbier          #+#    #+#             */
-/*   Updated: 2017/03/01 17:13:16 by cbarbier         ###   ########.fr       */
+/*   Updated: 2017/03/01 18:20:49 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int		init_env(t_env *env)
 		return (0);
 	if (!(env->img = mlx_new_image(env->mlx, W_WIDTH, W_HEIGHT)))
 		return (0);
-	init_julia(env->fract);
+	init_julia(env, env->fract);
 	return (1);
 }
 

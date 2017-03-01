@@ -6,7 +6,7 @@
 /*   By: cbarbier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 14:22:07 by cbarbier          #+#    #+#             */
-/*   Updated: 2017/03/01 17:27:28 by cbarbier         ###   ########.fr       */
+/*   Updated: 2017/03/01 18:34:58 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	zoom_in(t_env *env, int x, int y, t_fract *f)
 	f->zoom.y *= 1.1;
 	f->min.x += x / f->ozoom.x - x / f->zoom.x;
 	f->min.y += y / f->ozoom.y - y / f->zoom.y;
-	f->imax *= 1.1;
+	f->imax *= 1.0 + 1 / f->zoom.x;
 	fractol_core(env, f);
 	return (0);
 }
@@ -40,7 +40,7 @@ static int	zoom_out(t_env *env, int x, int y, t_fract *f)
 	f->zoom.y /= 1.1;
 	f->min.x += x / f->ozoom.x - x / f->zoom.x;
 	f->min.y += y / f->ozoom.y - y / f->zoom.y;
-	f->imax /= 1.1;
+	f->imax /= 1.0042;
 	fractol_core(env, f);
 	return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: cbarbier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 12:35:42 by cbarbier          #+#    #+#             */
-/*   Updated: 2017/03/01 17:13:05 by cbarbier         ###   ########.fr       */
+/*   Updated: 2017/03/01 18:29:14 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int		init_julia(t_fract *f)
+int		init_julia(t_env *env, t_fract *f)
 {
 	f->min.x = -2.0;
 	f->min.y = -1.5;
@@ -21,7 +21,9 @@ int		init_julia(t_fract *f)
 	f->zoom.x = W_WIDTH / 4.0;
 	f->zoom.y = W_HEIGHT / 3.0;
 	f->f = fractal_julia;
-	f->imax = 256;
+	f->imax = 42;
+	if (!(env->img = mlx_new_image(env->mlx, W_WIDTH, W_HEIGHT)))
+		return (0);
 	return (1);
 }
 
