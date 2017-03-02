@@ -6,7 +6,7 @@
 /*   By: cbarbier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 14:22:07 by cbarbier          #+#    #+#             */
-/*   Updated: 2017/03/01 18:34:58 by cbarbier         ###   ########.fr       */
+/*   Updated: 2017/03/02 18:54:49 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int			handle_escape(int keycode, t_env *env)
 	return (0);
 }
 
-static int	zoom_in(t_env *env, int x, int y, t_fract *f)
+static int	zoom_in(int x, int y, t_fract *f)
 {
 	f->ozoom.x = f->zoom.x;
 	f->zoom.x *= 1.1;
@@ -27,12 +27,11 @@ static int	zoom_in(t_env *env, int x, int y, t_fract *f)
 	f->zoom.y *= 1.1;
 	f->min.x += x / f->ozoom.x - x / f->zoom.x;
 	f->min.y += y / f->ozoom.y - y / f->zoom.y;
-	f->imax *= 1.0 + 1 / f->zoom.x;
-	fractol_core(env, f);
+	f->imax *= 1.038;
 	return (0);
 }
 
-static int	zoom_out(t_env *env, int x, int y, t_fract *f)
+static int	zoom_out(int x, int y, t_fract *f)
 {
 	f->ozoom.x = f->zoom.x;
 	f->zoom.x /= 1.1;
@@ -41,16 +40,19 @@ static int	zoom_out(t_env *env, int x, int y, t_fract *f)
 	f->min.x += x / f->ozoom.x - x / f->zoom.x;
 	f->min.y += y / f->ozoom.y - y / f->zoom.y;
 	f->imax /= 1.0042;
-	fractol_core(env, f);
 	return (0);
 }
 
 int			handle_mouse(int button, int x, int y, t_env *env)
 {
+	int		i;
+
 	ft_printf("button clicked id: %d\n", button);
-	if (button == 1 || button == 3)
-		zoom_in(env, x, y, env->fract);
-	else if (button == 2 || button == 4)
-		zoom_out(env, x, y, env->fract);
+	i = 0;
+	if ((button == 1 || button == 3))
+			zoom_in(x, y, env->fract);
+	else if ((button == 2 || button == 4))
+			zoom_out(x, y, env->fract);
+	fractol_core(env, env->fract);
 	return (0);
 }

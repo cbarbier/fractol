@@ -6,7 +6,7 @@
 #    By: jgengo <jgengo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/18 14:05:46 by jgengo            #+#    #+#              #
-#    Updated: 2017/03/01 18:40:46 by cbarbier         ###   ########.fr        #
+#    Updated: 2017/03/02 14:03:18 by cbarbier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ MLX				= -Lminilibx_macos -lmlx -framework OpenGL -framework AppKit
 SRCS			= srcs/main.c \
 				  srcs/core.c \
 				  srcs/drawin.c \
+				  srcs/threadin.c \
 				  srcs/events.c \
+				  srcs/mandelbrot.c \
 				  srcs/julia.c
 
 all: $(NAME)
@@ -49,6 +51,5 @@ fclean: clean
 	@make -C libft fclean
 
 re: fclean all
-	@make -C minilibx_macos re
 
 .PHONY: clean fclean all re
