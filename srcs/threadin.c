@@ -6,7 +6,7 @@
 /*   By: cbarbier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 13:33:26 by cbarbier          #+#    #+#             */
-/*   Updated: 2017/03/02 18:48:56 by cbarbier         ###   ########.fr       */
+/*   Updated: 2017/03/03 12:55:58 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,5 @@ void		*map_a_quarter(void *param)
 			f->f(p->index, f, x++, y);
 		y++;
 	}
-	ft_printf("y: %d\n", y);
 	return (0);
 }

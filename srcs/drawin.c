@@ -6,23 +6,30 @@
 /*   By: cbarbier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 11:25:39 by cbarbier          #+#    #+#             */
-/*   Updated: 2017/03/02 17:57:01 by cbarbier         ###   ########.fr       */
+/*   Updated: 2017/03/03 15:05:50 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
+
+unsigned int		fractal_colorin(t_fract *f, int i)
+{
+	if (i == f->imax)
+		return (0);
+	return (f->pallet[f->index_pallet][i % 5]);
+}
 
 void				put_pxl_img(int t, t_fract *f, t_coord *p, unsigned int c)
 {
 	char		*d;
 
 	d = (f->data[t] + (f->sizeline * p->y + p->x * f->bpp / 8));
-	d[0] = (c & 0xFF0000) >> 16;
-	d[1] = (c & 0x00FF00) >> 8;
-	d[2] = (c & 0xFF);
+	d[2] = (c & 0xFF0000) >> 16;
+	d[1] = (c & 0xFF00) >> 8;
+	d[0] = (c & 0xFF);
 }
 
-int			map_pixels(t_env *e)
+int					map_pixels(t_env *e)
 {
 	int			i;
 	pthread_t	th[NB_THREAD];

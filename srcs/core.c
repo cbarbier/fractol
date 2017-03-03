@@ -6,7 +6,7 @@
 /*   By: cbarbier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 17:00:10 by cbarbier          #+#    #+#             */
-/*   Updated: 2017/03/02 18:46:41 by cbarbier         ###   ########.fr       */
+/*   Updated: 2017/03/03 15:05:27 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int			fractol_core(t_env *e, t_fract *f)
 	{
 		if (!(e->img[i] = mlx_new_image(e->mlx, W_WIDTH, TH_STEP)))
 			return (0);
-		f->data[i] = mlx_get_data_addr(e->img[i], &(f->bpp), &(f->sizeline), &ed);
+		f->data[i] = mlx_get_data_addr(e->img[i], &(f->bpp),
+				&(f->sizeline), &ed);
 		i++;
 	}
 	mlx_clear_window(e->mlx, e->win);

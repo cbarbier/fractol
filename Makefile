@@ -6,7 +6,7 @@
 #    By: jgengo <jgengo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/18 14:05:46 by jgengo            #+#    #+#              #
-#    Updated: 2017/03/02 14:03:18 by cbarbier         ###   ########.fr        #
+#    Updated: 2017/03/03 12:48:59 by cbarbier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,8 @@ SRCS			= srcs/main.c \
 				  srcs/threadin.c \
 				  srcs/events.c \
 				  srcs/mandelbrot.c \
+				  srcs/newton_one.c \
+				  srcs/newton_two.c \
 				  srcs/julia.c
 
 all: $(NAME)

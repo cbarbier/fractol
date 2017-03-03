@@ -6,13 +6,13 @@
 /*   By: cbarbier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 12:35:42 by cbarbier          #+#    #+#             */
-/*   Updated: 2017/03/02 15:21:03 by cbarbier         ###   ########.fr       */
+/*   Updated: 2017/03/03 15:07:51 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int		init_mandel(t_fract *f)
+int					init_mandel(t_fract *f)
 {
 	f->min.x = -2.0;
 	f->min.y = -1.5;
@@ -23,13 +23,6 @@ int		init_mandel(t_fract *f)
 	f->f = fractal_mandel;
 	f->imax = 42;
 	return (1);
-}
-
-static unsigned int	color_mandel(t_fract *f, int i)
-{
-	if (i < f->imax)
-		return (0xFFFFFF / i);
-	return (0);
 }
 
 void				fractal_mandel(int t, t_fract *f, int x, int y)
@@ -53,5 +46,5 @@ void				fractal_mandel(int t, t_fract *f, int x, int y)
 	}
 	p.x = x;
 	p.y = y % TH_STEP;
-	put_pxl_img(t, f, &p, color_mandel(f, i));
+	put_pxl_img(t, f, &p, fractal_colorin(f, i));
 }
