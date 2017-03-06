@@ -6,7 +6,7 @@
 /*   By: cbarbier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/03 15:04:11 by cbarbier          #+#    #+#             */
-/*   Updated: 2017/03/03 15:58:29 by cbarbier         ###   ########.fr       */
+/*   Updated: 2017/03/06 13:28:42 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../minilibx_macos/mlx.h"
 # include <pthread.h>
 # include <math.h>
-# define NB_THREAD	800
+# define NB_THREAD	100
 # define W_HEIGHT	800
 # define W_WIDTH	800
 # define TH_STEP	(W_HEIGHT / NB_THREAD)
@@ -46,7 +46,6 @@ typedef struct	s_fract
 	int				dy;
 	intmax_t		imax;
 	char			*data[NB_THREAD];
-	int				index[NB_THREAD];
 	int				sizeline;
 	int				bpp;
 	unsigned int	pallet[3][5];
@@ -62,7 +61,7 @@ typedef struct	s_env
 {
 	void		*mlx;
 	void		*win;
-	void		*img[NB_THREAD];
+	void		*img;
 	t_param		params[NB_THREAD];
 	t_fract		fract[1];
 	char		drag;

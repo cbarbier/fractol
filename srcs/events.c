@@ -6,7 +6,7 @@
 /*   By: cbarbier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 14:22:07 by cbarbier          #+#    #+#             */
-/*   Updated: 2017/03/03 16:13:56 by cbarbier         ###   ########.fr       */
+/*   Updated: 2017/03/06 13:32:12 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static int	zoom_in(int x, int y, t_fract *f)
 {
 	static int		count = 0;
 
+	if (f->imax > 2147483647)
+		return (0);
 	f->ozoom.x = f->zoom.x;
 	f->zoom.x *= 1.1;
 	f->ozoom.y = f->zoom.y;
