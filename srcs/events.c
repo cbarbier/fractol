@@ -6,7 +6,7 @@
 /*   By: cbarbier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 14:22:07 by cbarbier          #+#    #+#             */
-/*   Updated: 2017/03/06 13:32:12 by cbarbier         ###   ########.fr       */
+/*   Updated: 2017/03/20 13:53:43 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static int	zoom_out(int x, int y, t_fract *f)
 
 int			mouse_motion(int x, int y, t_env *e)
 {
-	if (!e->drag || x % 8)
+	if (!e->drag || x % 5)
 		return (0);
 	e->fract->c.x = 0.001 * x;
 	e->fract->c.y = 0.001 * y;

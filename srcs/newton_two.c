@@ -6,7 +6,7 @@
 /*   By: cbarbier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 12:35:42 by cbarbier          #+#    #+#             */
-/*   Updated: 2017/03/03 15:09:13 by cbarbier         ###   ########.fr       */
+/*   Updated: 2017/03/20 13:55:28 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ void				fractal_newton_two(int t, t_fract *f, int x, int y)
 
 	z.x = x / f->zoom.x + f->min.x;
 	z.y = y / f->zoom.y + f->min.y;
-	c.x = -0.7;
-	c.y = 0.27015;
+	c.x = 0.5667;
+	c.y = 0.5667;
 	i = 0;
 	while (i++ < f->imax && (z.x * z.x + z.y * z.y) < 4)
 	{
 		tmp = z.x;
 		z.x = z.x * z.x - z.y * z.y + c.x;
-		z.y = -2 * tmp * z.y + c.y;
+		z.y = 2 * fabs(tmp * z.y) + c.y;
 	}
 	p.x = x;
 	p.y = y % TH_STEP;
