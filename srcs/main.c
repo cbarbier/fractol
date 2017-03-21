@@ -6,7 +6,7 @@
 /*   By: cbarbier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/19 19:47:59 by cbarbier          #+#    #+#             */
-/*   Updated: 2017/03/03 15:11:16 by cbarbier         ###   ########.fr       */
+/*   Updated: 2017/03/21 17:22:46 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,11 @@ static int		set_pallet(t_fract *f)
 
 static int		init_env(t_env *env, char l)
 {
-	int		i;
-
 	ft_bzero(env, sizeof(t_env));
 	if (!(env->mlx = mlx_init()))
 		return (0);
 	if (!(env->win = mlx_new_window(env->mlx, W_WIDTH, W_HEIGHT, "fractol")))
 		return (0);
-	i = 0;
 	if (l == 'j' && (env->fract->name = l))
 		init_julia(env->fract);
 	else if (l == 'm' && (env->fract->name = l))
