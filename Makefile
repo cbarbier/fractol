@@ -6,7 +6,7 @@
 #    By: jgengo <jgengo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/18 14:05:46 by jgengo            #+#    #+#              #
-#    Updated: 2017/03/03 12:48:59 by cbarbier         ###   ########.fr        #
+#    Updated: 2017/03/23 13:29:09 by cbarbier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,14 +26,20 @@ SRCS			= srcs/main.c \
 				  srcs/newton_two.c \
 				  srcs/julia.c
 
+OBJS			= $(SRCS:.c=.o)
+
 all: $(NAME)
 
 display:
 	@echo "*******************"
 	@echo "**project fractol**"
 	@echo "*******************\n\n"
-$(NAME): display $(LIBMLX) $(LIB) $(SRCS)
-	@$(CC) $(CFLAGS) -o $(NAME) $(SRCS) -Llibft -lft $(MLX)
+
+%.o:%.c
+	@$(CC) $(CFLAGS) -c $< -o $@
+	
+$(NAME): display $(LIBMLX) $(LIB) $(OBJS)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -Llibft -lft $(MLX)
 	@echo "FRACTOL COMPILED\t\033[0;32m✓\033[0m"
 
 $(LIBMLX):
