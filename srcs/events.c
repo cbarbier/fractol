@@ -6,12 +6,11 @@
 /*   By: cbarbier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 14:22:07 by cbarbier          #+#    #+#             */
-/*   Updated: 2017/03/21 19:36:04 by cbarbier         ###   ########.fr       */
+/*   Updated: 2017/03/23 11:10:14 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-#include <stdio.h>
 
 int			handle_escape(int keycode, t_env *env)
 {
