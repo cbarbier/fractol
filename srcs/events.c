@@ -6,7 +6,7 @@
 /*   By: cbarbier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 14:22:07 by cbarbier          #+#    #+#             */
-/*   Updated: 2017/03/23 11:10:14 by cbarbier         ###   ########.fr       */
+/*   Updated: 2017/03/24 12:24:45 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ int			handle_escape(int keycode, t_env *env)
 		env->fract->dy -= 5;
 	else if (keycode == 123)
 		env->fract->dx += 5;
+	else if (keycode == 69 && env->fract->imax + 5 <= 2147483647)
+		env->fract->imax += 5;
+	else if (keycode == 78 && env->fract->imax - 5 > 0)
+		env->fract->imax -= 5;
 	fractol_core(env, env->fract);
 	return (0);
 }
@@ -66,7 +70,7 @@ static int	zoom_out(int x, int y, t_fract *f)
 
 int			mouse_motion(int x, int y, t_env *e)
 {
-	if (!e->drag || x % 5)
+	if (!e->drag)
 		return (0);
 	e->fract->c.x = 0.001 * x;
 	e->fract->c.y = 0.001 * y;
@@ -79,9 +83,9 @@ int			handle_mouse(int button, int x, int y, t_env *env)
 	int		i;
 
 	i = 0;
-	if ((button == 1 || button == 5))
+	if ((button == 1 || button == 5 || button == 6))
 		zoom_in(x, y, env->fract);
-	else if ((button == 2 || button == 4))
+	else if ((button == 2 || button == 4 || button == 7))
 		zoom_out(x, y, env->fract);
 	fractol_core(env, env->fract);
 	return (0);

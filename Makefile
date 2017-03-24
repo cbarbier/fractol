@@ -6,7 +6,7 @@
 #    By: jgengo <jgengo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/18 14:05:46 by jgengo            #+#    #+#              #
-#    Updated: 2017/03/23 13:29:09 by cbarbier         ###   ########.fr        #
+#    Updated: 2017/03/24 12:46:50 by cbarbier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,16 +30,16 @@ OBJS			= $(SRCS:.c=.o)
 
 all: $(NAME)
 
-display:
-	@echo "*******************"
-	@echo "**project fractol**"
-	@echo "*******************\n\n"
-
 %.o:%.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 	
-$(NAME): display $(LIBMLX) $(LIB) $(OBJS)
+$(NAME): $(LIBMLX) $(LIB) $(OBJS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -Llibft -lft $(MLX)
+	@echo "\033[35;1m  __                _        _" 
+	@echo "\033[35;1m / _|_ __ __ _  ___| |_ ___ | |"
+	@echo "\033[35;1m| |_| '__/ _\` |/ __| __/ _ \| |"
+	@echo "\033[35;1m|  _| | | (_| | (__| || (_) | |"
+	@echo "\033[35;1m|_| |_|  \__,_|\___|\__\___/|_|\033[0m\n\n"
 	@echo "FRACTOL COMPILED\t\033[0;32m✓\033[0m"
 
 $(LIBMLX):
