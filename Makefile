@@ -6,7 +6,7 @@
 #    By: jgengo <jgengo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/18 14:05:46 by jgengo            #+#    #+#              #
-#    Updated: 2017/03/24 12:46:50 by cbarbier         ###   ########.fr        #
+#    Updated: 2017/03/24 14:26:20 by cbarbier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,8 @@ $(LIB):
 	@make -C libft
 
 clean:
+	@/bin/rm -rf $(OBJS)
+	@echo "OBJECTS REMOVED\t\033[0;32m✓\033[0m"
 	@make -C minilibx_macos clean
 	@make -C libft clean
 
