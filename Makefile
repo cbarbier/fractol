@@ -6,7 +6,7 @@
 #    By: jgengo <jgengo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/18 14:05:46 by jgengo            #+#    #+#              #
-#    Updated: 2017/03/24 14:26:20 by cbarbier         ###   ########.fr        #
+#    Updated: 2017/03/28 12:21:19 by cbarbier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,6 @@ SRCS			= srcs/main.c \
 				  srcs/newton_one.c \
 				  srcs/newton_two.c \
 				  srcs/julia.c
-
 OBJS			= $(SRCS:.c=.o)
 
 all: $(NAME)

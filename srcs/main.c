@@ -6,7 +6,7 @@
 /*   By: cbarbier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/19 19:47:59 by cbarbier          #+#    #+#             */
-/*   Updated: 2017/03/21 17:22:46 by cbarbier         ###   ########.fr       */
+/*   Updated: 2017/03/28 12:25:02 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int				main(int argc, char **argv)
 {
 	t_env		env;
 
-	if (argc == 1 || (ft_strcmp(argv[1], "julia")
+	if (argc != 2 || (ft_strcmp(argv[1], "julia")
 				&& ft_strcmp(argv[1], "mandelbrot")
 				&& !ft_strchr("12", argv[1][0])))
 	{
